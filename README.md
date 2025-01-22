@@ -7,6 +7,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 npm i tailwind-merge
 npm i clsx
 
+npm i lucide-react
+
 
 ## Getting Started
 
