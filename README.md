@@ -4,6 +4,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
     npx create-next-app@latest
 
+npm i tailwind-merge
+npm i clsx
+
+
 ## Getting Started
 
 First, run the development server:
