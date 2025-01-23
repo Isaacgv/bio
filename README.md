@@ -9,6 +9,8 @@ npm i clsx
 
 npm i lucide-react
 
+npm i firebase-admin
+
 
 ## Getting Started
 
