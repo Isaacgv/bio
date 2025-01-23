@@ -9,7 +9,11 @@ npm i clsx
 
 npm i lucide-react
 
-npm i firebase-admin
+npm i firebase-admin@12.6.0
+
+npm install next-auth@beta
+npm install @auth/firebase-adapter
+
 
 
 ## Getting Started

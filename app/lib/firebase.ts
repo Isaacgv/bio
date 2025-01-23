@@ -5,7 +5,7 @@ import "server-only";
 
 
 const decodedKey = Buffer.from(
-  process.env.FIREBASE_PRIVATE_KEY!,
+  process.env.FIREBASE_PRIVATE_KEYBASE64!,
   "base64"
 ).toString("utf-8");
 
@@ -21,7 +21,7 @@ if (!getApps().length) {
     credential: firebaseCert,
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   });
-  
+
 }
 
 export const db = getFirestore();
