@@ -2,6 +2,7 @@ import Header from "@/app/components/landing-page/header";
 import Button from "@/app/components/ui/button";
 import TextInput from "@/app/components/ui/text-input";
 import { Rocket } from "lucide-react";
+import CreateLinkForm from "./create-link-form";
 
 export default function CriarPage() {
   return (
@@ -21,6 +22,7 @@ export default function CriarPage() {
         <div>
           <span className="text-accent-pink">Example error</span>
         </div>
+        <CreateLinkForm />
       </div>
     </div>
   );
