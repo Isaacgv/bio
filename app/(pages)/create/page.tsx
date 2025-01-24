@@ -14,14 +14,6 @@ export default function CriarPage() {
           Choose your link</h1>
           <Rocket className="size-10" />
         </div>
-        <form action="" className="w-full flex items-center gap-2">
-          <span>inbio.com/</span>
-          <TextInput />
-          <Button className="w-[126px]">To create</Button>
-        </form>
-        <div>
-          <span className="text-accent-pink">Example error</span>
-        </div>
         <CreateLinkForm />
       </div>
     </div>
