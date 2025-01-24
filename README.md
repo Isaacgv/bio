@@ -14,6 +14,8 @@ npm i firebase-admin@12.6.0
 npm install next-auth@beta
 npm install @auth/firebase-adapter
 
+npm i browser-image-compression
+
 
 
 ## Getting Started
