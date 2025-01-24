@@ -12,6 +12,7 @@ export default function Modal({
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }) {
+    
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref, () => {
