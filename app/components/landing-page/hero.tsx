@@ -1,4 +1,4 @@
-import UserCard from "../commons/user-card";
+import UserCard from "../commons/user-card/user-card";
 import Button from "../ui/button";
 import TextInput from "../ui/text-input";
 import TotalVisits from "../commons/total-visits";

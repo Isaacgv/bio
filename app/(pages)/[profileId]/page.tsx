@@ -1,6 +1,6 @@
 import ProjectCard from "@/app/components/commons/project-card";
 import TotalVisits from "@/app/components/commons/total-visits";
-import UserCard from "@/app/components/commons/user-card";
+import UserCard from "@/app/components/commons/user-card/user-card";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +37,7 @@ export default async function ProfilePage({
     <div className="relative h-screen flex p-20 overflow-hidden">
       <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary">
         <span>You are using the trial version.</span>
+
         <Link href={`/${profileId}/upgrade`}>
             <button className="text-accent-green font-bold">
                 Upgrade now!
@@ -55,7 +56,7 @@ export default async function ProfilePage({
               key={project.id}
               project={project}
               isOwner={isOwner}
-              img={await getDownloadURLFromPath(project.imagePath)}
+              img={(await getDownloadURLFromPath(project.imagePath)) || ""}
             />
           ))}
 
