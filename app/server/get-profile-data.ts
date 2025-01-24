@@ -6,6 +6,13 @@ export type ProfileData = {
   userId: string;
   totalVisits: number;
   createdAt: number;
+  socialMedias?: {
+    github: string;
+    instagram: string;
+    linkedin: string;
+    twitter: string;
+  };
+  updatedAt?: number;
   
 };
 
@@ -28,7 +35,7 @@ export async function getProfileData(profileId: string) {
 
 
 export async function getProfileProjects(profileId: string) {
-    
+
     const snapshot = await db
       .collection("projects")
       .doc(profileId)

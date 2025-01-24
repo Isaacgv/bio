@@ -1,8 +1,17 @@
 import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
 import EditSocialLinks from "./edit-social-links";
 import Button from "../../ui/button";
+import Link from "next/link";
 
-export default function UserCard() {
+import { ProfileData } from "@/app/server/get-profile-data";
+
+export default async function UserCard({
+  profileData,
+  isOwner,
+}: {
+  profileData?: ProfileData;
+  isOwner?: boolean;
+}) {
   const icons = [Github, Instagram, Linkedin, Twitter];
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
@@ -23,17 +32,59 @@ export default function UserCard() {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>
+
         <div className="flex gap-3">
-          {icons.map((Icon, index) => (
-            <button
-              key={index}
-              className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
-            >
-              <Icon />
-            </button>
-          ))}
-          <EditSocialLinks />
+
+          {profileData?.socialMedias?.github && (
+              <Link
+                href={profileData?.socialMedias?.github}
+                target="_blank"
+                className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+              >
+                <Github />
+              </Link>
+            )}
+            {profileData?.socialMedias?.instagram && (
+              <Link
+                href={profileData?.socialMedias?.instagram}
+                target="_blank"
+                className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+              >
+                <Instagram />
+              </Link>
+            )}
+            {profileData?.socialMedias?.linkedin && (
+              <Link
+                href={profileData?.socialMedias?.linkedin}
+                target="_blank"
+                className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+              >
+                <Linkedin />
+              </Link>
+            )}
+            {profileData?.socialMedias?.twitter && (
+              <Link
+                href={profileData?.socialMedias?.twitter}
+                target="_blank"
+                className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+              >
+                <Twitter />
+              </Link>
+            )}
+            {!profileData &&
+              icons.map((Icon, index) => (
+                <button
+                  key={index}
+                  className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+                >
+                  <Icon />
+                </button>
+              ))}
+            {isOwner && (
+              <EditSocialLinks socialMedias={profileData?.socialMedias} />
+            )}
         </div>
+        
         <div className="flex flex-col gap-3 w-full h-[172px]">
           <div className="w-full flex flex-col items-center gap-3">
             <Button className="w-full">SaaS Template - Buy Now</Button>
