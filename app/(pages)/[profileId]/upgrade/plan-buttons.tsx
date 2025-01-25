@@ -20,7 +20,16 @@ export default function PlanButtons() {
       >
         US$ 9,90 / mont
       </Button>
-      <Button>US$ 99,90 Lifetime</Button>
+      <Button
+        onClick={() =>
+          createStripeCheckout({
+            metadata: { profileId },
+            isSubscription: false,
+          })
+        }
+      >
+        US$ 99,90 Liftime
+      </Button>
     </div>
   );
 }
