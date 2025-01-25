@@ -1,6 +1,8 @@
 import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
 import EditSocialLinks from "./edit-social-links";
 import Button from "../../ui/button";
+import EditUserCard from "./edit-user-card";
+import { getDownloadURLFromPath } from "@/app/lib/firebase";
 
 import Link from "next/link";
 import { ProfileData } from "@/app/server/get-profile-data";
@@ -15,12 +17,14 @@ export default async function UserCard({
   profileData?: ProfileData;
   isOwner?: boolean;
 }) {
-  const icons = [Github, Instagram, Linkedin, Twitter];
+
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
       <div className="size-48">
         <img
-          src="/me.webp"
+          src={
+            (await getDownloadURLFromPath(profileData?.imagePath)) || "/me.webp"
+          }
           alt="Dev"
           className="rounded-full object-cover w-full h-full"
         />
@@ -28,10 +32,17 @@ export default async function UserCard({
       <div className="flex flex-col gap-2 w-full">
         <div className="flex items-center gap-2">
           <h3 className="text-3xl font-bold min-w-0 overflow-hidden">
-            Dev
+            {profileData?.name || "Dev"}
           </h3>
+
+          {isOwner && <EditUserCard profileData={profileData} />}
+
         </div>
-        <p className="opacity-40">"I make products for the Internet"</p>
+    
+        <p className="opacity-40">
+          {profileData?.description || "I make products for the Internet"}
+        </p>
+
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>
@@ -74,21 +85,14 @@ export default async function UserCard({
                 <Twitter />
               </Link>
             )}
-            {!profileData &&
-              icons.map((Icon, index) => (
-                <button
-                  key={index}
-                  className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
-                >
-                  <Icon />
-                </button>
-              ))}
+
             {isOwner && (
               <EditSocialLinks socialMedias={profileData?.socialMedias} />
             )}
+
         </div>
 
-        <div className="flex flex-col gap-3 w-full h-[172px]">
+        <div className="flex flex-col gap-3 w-full min-h-[172px]">
           <div className="w-full flex flex-col items-center gap-3">
 
             {profileData?.link1 && (
@@ -119,11 +123,11 @@ export default async function UserCard({
               </Link>
             )}
 
-
+            {isOwner && <AddCustomLink />}
 
           </div>
         </div>
-        <AddCustomLink />
+      
       </div>
     </div>
   );
