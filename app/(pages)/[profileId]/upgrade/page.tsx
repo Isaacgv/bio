@@ -1,5 +1,6 @@
 import Header from "@/app/components/landing-page/header";
 import Button from "@/app/components/ui/button";
+import PlanButtons from "./plan-buttons";
 
 
 export default async function UpgradePage() {
@@ -7,10 +8,7 @@ export default async function UpgradePage() {
     <div className="h-screen flex flex-col items-center justify-center gap-4">
       <Header />
       <h2 className="text-2xl font-bold">Escolha o plano</h2>
-      <div className="flex gap-4">
-        <Button>US$ 9,90 / month</Button>
-        <Button>US$ 59,90 Lifetime</Button>
-      </div>
+      <PlanButtons />
     </div>
   );
 }

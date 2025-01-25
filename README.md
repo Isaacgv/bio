@@ -16,6 +16,9 @@ npm install @auth/firebase-adapter
 
 npm i browser-image-compression
 
+npm i stripe
+npm i @stripe/stripe-js
+
 
 
 ## Getting Started
