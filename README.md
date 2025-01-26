@@ -25,6 +25,7 @@ npm i mixpanel
 
 Need to add -> public/opengraph-image.png, public/twitter-image.png
 
+npm i resend
 
 ## Getting Started
 

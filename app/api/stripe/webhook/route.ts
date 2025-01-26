@@ -1,4 +1,5 @@
 import { db } from "@/app/lib/firebase";
+import { resend } from "@/app/lib/resend";
 import stripe from "@/app/lib/stripe";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -47,7 +48,14 @@ export async function POST(req: NextRequest) {
           if (hostedVoucherUrl) {
             const userEmail = event.data.object.customer_details?.email;
 
-            console.log("Send email to customer with the invoice");
+            if (userEmail) {
+                resend.emails.send({
+                  from: "onboarding@resend.dev",
+                  to: userEmail,
+                  subject: "Payement voucher",
+                  text: `Voucher ${hostedVoucherUrl}`,
+                });
+              }
           }
         }
         break;
