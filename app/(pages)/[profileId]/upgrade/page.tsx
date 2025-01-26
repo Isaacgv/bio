@@ -1,7 +1,13 @@
 import Header from "@/app/components/landing-page/header";
-import Button from "@/app/components/ui/button";
+
 import PlanButtons from "./plan-buttons";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "InBio - Upgrade",
+  description: "InBio - The project management platform.",
+};
 
 export default async function UpgradePage() {
   return (

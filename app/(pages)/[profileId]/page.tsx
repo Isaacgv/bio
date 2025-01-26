@@ -17,6 +17,13 @@ import NewProject from "./new-project";
 import { getDownloadURLFromPath } from "@/app/lib/firebase";
 
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "InBio - Perfil",
+  description: "InBio - The project management platform.",
+};
+
 
 export default async function ProfilePage({
   params,

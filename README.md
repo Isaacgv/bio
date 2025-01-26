@@ -23,6 +23,8 @@ npm i @next/third-parties
 
 npm i mixpanel
 
+Need to add -> public/opengraph-image.png, public/twitter-image.png
+
 
 ## Getting Started
 
