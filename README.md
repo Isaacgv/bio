@@ -19,6 +19,9 @@ npm i browser-image-compression
 npm i stripe
 npm i @stripe/stripe-js
 
+npm i @next/third-parties
+
+npm i mixpanel
 
 
 ## Getting Started
