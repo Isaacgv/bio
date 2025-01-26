@@ -28,7 +28,7 @@ export default function PlanButtons() {
           })
         }
       >
-        US$ 99,90 Liftime
+        US$ 99,90 Lifetime
       </Button>
     </div>
   );
